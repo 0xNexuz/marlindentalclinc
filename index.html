@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marlin Dental Clinic | Benin & Lagos Dentist</title>
+  <meta name="description" content="Book dental appointments with Marlin Dental Clinic in Benin and Lagos for braces, implants, veneers, crowns, dentures, teeth whitening and general dental treatment.">
+  <style>
+    :root {
+      --deep: #073f3e;
+      --teal: #0a8f86;
+      --mint: #dff5ef;
+      --orange: #ef6b1f;
+      --gold: #f2b46d;
+      --paper: #fbf8f1;
+      --white: #ffffff;
+      --ink: #142321;
+      --muted: #657571;
+      --line: rgba(7, 63, 62, .16);
+      --shadow: 0 24px 70px rgba(5, 46, 45, .16);
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea { font: inherit; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(255,255,255,.22);
+      background: rgba(251, 248, 241, .84);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgba(10, 143, 134, .28);
+      background: var(--white);
+    }
+
+    .brand strong {
+      display: block;
+      color: var(--deep);
+      font-size: 1rem;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: .76rem;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: rgba(20, 35, 33, .78);
+      font-size: .92rem;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      box-shadow: 0 14px 30px rgba(239, 107, 31, .24);
+    }
+
+    .btn-ghost {
+      border-color: var(--line);
+      color: var(--deep);
+      background: rgba(255,255,255,.55);
+    }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: end;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(7,63,62,.93), rgba(7,63,62,.56) 48%, rgba(7,63,62,.1)),
+        url("assets/marlin-clinic-treatment.jpg") center / cover no-repeat;
+      color: var(--white);
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 190px;
+      background: linear-gradient(0deg, var(--paper), transparent);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 94px 0 118px;
+      display: grid;
+      grid-template-columns: minmax(0, 770px) minmax(240px, 350px);
+      gap: 40px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--mint);
+      font-size: .78rem;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .eyebrow:before {
+      content: "";
+      width: 38px;
+      height: 2px;
+      background: var(--orange);
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(3.4rem, 8vw, 7.6rem);
+      line-height: .88;
+      max-width: 810px;
+      font-weight: 760;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      margin-top: 26px;
+      max-width: 620px;
+      color: rgba(255,255,255,.82);
+      font-size: clamp(1.02rem, 2vw, 1.22rem);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .hero-card {
+      align-self: stretch;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(251,248,241,.1);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+    }
+
+    .hero-card img {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 24px;
+      background: var(--white);
+    }
+
+    .hero-card strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-card p { color: rgba(255,255,255,.76); }
+
+    section {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 92px 0;
+    }
+
+    .trust {
+      padding-top: 54px;
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .trust > div {
+      min-height: 138px;
+      padding: 24px;
+      background: rgba(255,255,255,.78);
+    }
+
+    .trust b {
+      display: block;
+      font-size: clamp(1.45rem, 3vw, 2.5rem);
+      color: var(--deep);
+      line-height: 1;
+    }
+
+    .trust span {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(280px, .48fr);
+      gap: 50px;
+      align-items: end;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: clamp(2.35rem, 5vw, 4.9rem);
+      line-height: .96;
+      color: var(--deep);
+      font-weight: 740;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .treatments {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .treatment-card {
+      min-height: 214px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.72);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .treatment-card:nth-child(2n) { background: var(--mint); }
+    .treatment-card:nth-child(3n) { background: #fff0e5; }
+    .treatment-card:after {
+      content: attr(data-num);
+      position: absolute;
+      right: 14px;
+      bottom: -16px;
+      color: rgba(7, 63, 62, .08);
+      font-size: 5.8rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .treatment-card h3 {
+      color: var(--deep);
+      font-size: 1.28rem;
+      margin-bottom: 12px;
+    }
+
+    .treatment-card p {
+      color: var(--muted);
+      font-size: .95rem;
+      max-width: 24ch;
+    }
+
+    .locations-wrap {
+      width: 100%;
+      background: var(--deep);
+      color: var(--white);
+      margin-top: 26px;
+    }
+
+    .locations {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(300px, 1fr);
+      gap: 52px;
+      align-items: center;
+    }
+
+    .locations h2 { color: var(--white); }
+    .locations .lead { color: rgba(255,255,255,.7); }
+
+    .location-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .location {
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius);
+      padding: 24px;
+      background: rgba(255,255,255,.06);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .location strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .location span {
+      display: block;
+      color: rgba(255,255,255,.68);
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: minmax(280px, .64fr) minmax(0, 1fr);
+      gap: 46px;
+      align-items: center;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .step {
+      min-height: 180px;
+      padding: 24px;
+      background: rgba(255,255,255,.75);
+    }
+
+    .step b {
+      color: var(--orange);
+      font-size: .82rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .step h3 {
+      margin-top: 18px;
+      color: var(--deep);
+      font-size: 1.22rem;
+    }
+
+    .step p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .photo-panel {
+      min-height: 520px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(7,63,62,.05), rgba(7,63,62,.55)),
+        url("assets/marlin-clinic-treatment.jpg") center / cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      padding: 28px;
+      color: var(--white);
+    }
+
+    .photo-panel h2 { color: var(--white); max-width: 650px; }
+
+    .gallery-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .mini-panel {
+      border-radius: var(--radius);
+      padding: 28px;
+      background: var(--mint);
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mini-panel.orange { background: #fff0e5; }
+    .mini-panel strong {
+      color: var(--deep);
+      font-size: 1.55rem;
+      line-height: 1.08;
+      max-width: 12ch;
+    }
+
+    .mini-panel p { color: var(--muted); margin-top: 16px; }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 16px;
+    }
+
+    .quote-wall {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .quote, .booking-panel {
+      padding: 26px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.74);
+    }
+
+    .quote p {
+      color: var(--deep);
+      font-size: 1.06rem;
+      font-weight: 650;
+    }
+
+    .quote span {
+      display: block;
+      color: var(--muted);
+      margin-top: 20px;
+      font-size: .9rem;
+    }
+
+    .booking-wrap {
+      width: 100%;
+      background: linear-gradient(135deg, #f7eee0, #dff5ef 64%, #ffffff);
+    }
+
+    .booking {
+      display: grid;
+      grid-template-columns: minmax(0, .82fr) minmax(320px, .7fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .booking-list {
+      margin-top: 28px;
+      display: grid;
+      gap: 14px;
+      color: var(--muted);
+    }
+
+    .booking-list span {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .booking-list span:before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--orange);
+      flex: 0 0 auto;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      color: var(--deep);
+      font-size: .88rem;
+      font-weight: 800;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      min-height: 48px;
+      padding: 12px 14px;
+      background: var(--white);
+      color: var(--ink);
+      outline-color: var(--teal);
+    }
+
+    textarea { resize: vertical; min-height: 104px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .footer {
+      width: 100%;
+      background: var(--deep);
+      color: var(--white);
+    }
+
+    .footer section {
+      padding: 42px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .footer p { color: rgba(255,255,255,.68); }
+
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 40;
+      box-shadow: 0 18px 44px rgba(7,63,62,.25);
+    }
+
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .hero-inner, .section-head, .locations, .journey, .gallery, .testimonials, .booking {
+        grid-template-columns: 1fr;
+      }
+      .hero { min-height: 760px; }
+      .hero-inner { padding: 74px 0 94px; }
+      .trust { grid-template-columns: repeat(2, 1fr); }
+      .treatments { grid-template-columns: repeat(2, 1fr); }
+      .photo-panel { min-height: 420px; }
+    }
+
+    @media (max-width: 640px) {
+      .nav { min-height: 68px; }
+      .brand img { width: 46px; height: 46px; }
+      .brand span { display: none; }
+      .nav-actions .btn-primary,
+      .nav-actions .btn-ghost { display: none; }
+      .hero {
+        min-height: 730px;
+        background:
+          linear-gradient(180deg, rgba(7,63,62,.72), rgba(7,63,62,.93)),
+          url("assets/marlin-clinic-treatment.jpg") center / cover no-repeat;
+      }
+      h1 { font-size: clamp(3.15rem, 15vw, 4.8rem); }
+      .hero-cta {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .hero-cta .btn {
+        width: 100%;
+        white-space: normal;
+        text-align: center;
+      }
+      .hero-card { display: none; }
+      section { padding: 68px 0; }
+      .trust, .treatments, .steps, .quote-wall, .form-row { grid-template-columns: 1fr; }
+      .trust > div { min-height: 112px; }
+      .location { grid-template-columns: 1fr; }
+      .footer section { flex-direction: column; align-items: flex-start; padding-bottom: 92px; }
+      .mobile-cta { display: inline-flex; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Marlin Dental Clinic home">
+        <img src="assets/marlin-instagram-logo.jpg" alt="Marlin Dental Clinic logo">
+        <span><strong>Marlin Dental Clinic</strong><span>Benin + Lagos</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#treatments">Treatments</a>
+        <a href="#locations">Locations</a>
+        <a href="#booking">Book</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="https://www.instagram.com/marlindentalclinic/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn-primary" href="#booking">Book appointment</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <article class="hero">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow">Marlin Dental Clinic</span>
+          <h1>Confident smiles, carefully treated.</h1>
+          <p class="hero-copy">Dental care in Benin and Lagos for braces, implants, veneers, crowns, dentures, whitening and general treatment.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#booking">Make an appointment</a>
+            <a class="btn btn-ghost" href="https://wa.me/2348165011953?text=Hello%20Marlin%20Dental%20Clinic%2C%20I%20would%20like%20to%20make%20an%20appointment." target="_blank" rel="noopener">WhatsApp Benin</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Clinic summary">
+          <img src="assets/marlin-instagram-logo.jpg" alt="">
+          <strong>Open for smile design, restorative care and routine dental treatment.</strong>
+          <p>Message the clinic directly and choose the branch closest to you.</p>
+        </aside>
+      </div>
+    </article>
+
+    <section aria-label="Clinic proof">
+      <div class="trust">
+        <div><b>Smile care</b><span>From routine dental visits to cosmetic and restorative treatment plans.</span></div>
+        <div><b>Benin</b><span>Visit the Ugbowo clinic for consultations, whitening, braces and general care.</span></div>
+        <div><b>Lagos</b><span>Book the Epe branch for dental concerns, smile design and follow-up visits.</span></div>
+        <div><b>Quick chat</b><span>Send your request straight to the clinic team before choosing a time.</span></div>
+      </div>
+    </section>
+
+    <section id="treatments">
+      <div class="section-head">
+        <h2>Treatment options with a clear plan.</h2>
+        <p class="lead">Find the right care for your smile, from routine treatment to braces, implants, veneers and whitening.</p>
+      </div>
+      <div class="treatments">
+        <article class="treatment-card" data-num="01"><h3>Braces</h3><p>Alignment care for patients ready to straighten and protect their bite.</p></article>
+        <article class="treatment-card" data-num="02"><h3>Implants</h3><p>Restorative replacement planning for missing teeth and long-term function.</p></article>
+        <article class="treatment-card" data-num="03"><h3>Veneers</h3><p>Smile-shaping consultations for brighter, more balanced front teeth.</p></article>
+        <article class="treatment-card" data-num="04"><h3>Crowns</h3><p>Protection and restoration for damaged or heavily treated teeth.</p></article>
+        <article class="treatment-card" data-num="05"><h3>Dentures</h3><p>Practical replacement options for comfort, speech and chewing support.</p></article>
+        <article class="treatment-card" data-num="06"><h3>Whitening</h3><p>Guided teeth whitening for a cleaner, brighter smile appearance.</p></article>
+        <article class="treatment-card" data-num="07"><h3>Bridges</h3><p>Fixed restorative options to close gaps and support the bite.</p></article>
+        <article class="treatment-card" data-num="08"><h3>General Care</h3><p>Checkups, treatment planning and routine dental care for families.</p></article>
+      </div>
+    </section>
+
+    <div class="locations-wrap" id="locations">
+      <section class="locations">
+        <div>
+          <span class="eyebrow">Visit Marlin</span>
+          <h2>Choose Benin or Lagos.</h2>
+          <p class="lead">The appointment form routes WhatsApp messages to the selected branch phone number so patients can start from the right location.</p>
+        </div>
+        <div class="location-grid">
+          <article class="location">
+            <div><strong>Benin clinic</strong><span>241 Ugbowo, Benin City</span><span>08165011953</span></div>
+            <a class="btn btn-primary" href="https://wa.me/2348165011953?text=Hello%20Marlin%20Dental%20Clinic%20Benin%2C%20I%20would%20like%20to%20make%20an%20appointment." target="_blank" rel="noopener">Message</a>
+          </article>
+          <article class="location">
+            <div><strong>Lagos clinic</strong><span>19, Adeyemi Apena Street, Epe</span><span>08034393545</span></div>
+            <a class="btn btn-primary" href="https://wa.me/2348034393545?text=Hello%20Marlin%20Dental%20Clinic%20Lagos%2C%20I%20would%20like%20to%20make%20an%20appointment." target="_blank" rel="noopener">Message</a>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <section class="journey">
+      <div>
+        <span class="eyebrow">Patient flow</span>
+        <h2>A calmer route into the chair.</h2>
+        <p class="lead" style="margin-top:22px">Start with the branch closest to you, describe what you need, and let the clinic team guide the next appointment window.</p>
+      </div>
+      <div class="steps">
+        <article class="step"><b>Step 01</b><h3>Choose a branch</h3><p>Select Benin or Lagos so your request goes to the right clinic line.</p></article>
+        <article class="step"><b>Step 02</b><h3>Name the treatment</h3><p>Pick braces, implants, whitening, veneers or general dental care.</p></article>
+        <article class="step"><b>Step 03</b><h3>Add a short note</h3><p>Mention pain, sensitivity, a broken tooth, smile goals or preferred timing.</p></article>
+        <article class="step"><b>Step 04</b><h3>Confirm on WhatsApp</h3><p>The clinic receives your message and can continue the conversation directly.</p></article>
+      </div>
+    </section>
+
+    <section class="gallery" aria-label="Clinic visual story">
+      <div class="photo-panel">
+        <div>
+          <span class="eyebrow">Inside the clinic</span>
+          <h2>Treatment-room proof, not stock polish.</h2>
+        </div>
+      </div>
+      <div class="gallery-side">
+        <div class="mini-panel">
+          <strong>Teal for trust. Orange for warmth.</strong>
+          <p>A calm clinical look with warm accents keeps the experience clear, friendly and easy to trust.</p>
+        </div>
+        <div class="mini-panel orange">
+          <strong>Designed for quick decisions.</strong>
+          <p>Branch buttons, contact details and treatment options stay visible before the patient fills any form.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div>
+        <span class="eyebrow">Social presence</span>
+        <h2>Helpful details before your visit.</h2>
+        <p class="lead" style="margin-top:22px">Short, practical prompts help patients explain what they need before they walk into the clinic.</p>
+      </div>
+      <div class="quote-wall">
+        <article class="quote"><p>“Ask about braces, aligners, implants or a general checkup before visiting.”</p><span>Suggested patient prompt</span></article>
+        <article class="quote"><p>“Send photos or symptoms on WhatsApp so the team can guide the appointment.”</p><span>Booking helper</span></article>
+        <article class="quote"><p>“Choose the branch first: Ugbowo, Benin or Epe, Lagos.”</p><span>Location clarity</span></article>
+        <article class="quote"><p>“Follow Instagram for recent cases, clinic updates and offers.”</p><span>@marlindentalclinic</span></article>
+      </div>
+    </section>
+
+    <div class="booking-wrap" id="booking">
+      <section class="booking">
+        <div>
+          <span class="eyebrow">Book now</span>
+          <h2>Start your appointment on WhatsApp.</h2>
+          <div class="booking-list">
+            <span>No backend required: the form opens a prefilled WhatsApp message.</span>
+            <span>Branch-specific routing for Benin and Lagos.</span>
+            <span>Instagram is available for direct messages, recent cases and clinic updates.</span>
+          </div>
+        </div>
+        <div class="booking-panel">
+          <form id="appointmentForm">
+            <div class="form-row">
+              <label>Full name <input name="name" autocomplete="name" placeholder="Your name" required></label>
+              <label>Phone <input name="phone" autocomplete="tel" placeholder="Your phone number" required></label>
+            </div>
+            <div class="form-row">
+              <label>Branch
+                <select name="branch">
+                  <option value="Benin" data-phone="2348165011953">Benin - Ugbowo</option>
+                  <option value="Lagos" data-phone="2348034393545">Lagos - Epe</option>
+                </select>
+              </label>
+              <label>Treatment
+                <select name="treatment">
+                  <option>General dental treatment</option>
+                  <option>Braces</option>
+                  <option>Implants</option>
+                  <option>Veneers</option>
+                  <option>Crowns</option>
+                  <option>Dentures</option>
+                  <option>Teeth whitening</option>
+                  <option>Bridges</option>
+                </select>
+              </label>
+            </div>
+            <label>Preferred date <input name="date" type="date"></label>
+            <label>Message <textarea name="message" placeholder="Tell the clinic what you need help with."></textarea></label>
+            <button class="btn btn-primary" type="submit">Send appointment request</button>
+            <a class="btn btn-ghost" href="https://www.instagram.com/marlindentalclinic/" target="_blank" rel="noopener">Message on Instagram</a>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <section>
+      <div>
+        <strong>Marlin Dental Clinic</strong>
+        <p>Benin: 241 Ugbowo. Lagos: 19, Adeyemi Apena Street, Epe.</p>
+      </div>
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="https://www.instagram.com/marlindentalclinic/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn-primary" href="https://wa.me/2348165011953" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </section>
+  </footer>
+
+  <a class="btn btn-primary mobile-cta" href="#booking">Book appointment</a>
+
+  <script>
+    const form = document.querySelector("#appointmentForm");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const branch = form.elements.branch;
+      const selected = branch.options[branch.selectedIndex];
+      const phone = selected.dataset.phone;
+      const text = [
+        "Hello Marlin Dental Clinic, I would like to make an appointment.",
+        `Name: ${data.get("name")}`,
+        `Phone: ${data.get("phone")}`,
+        `Branch: ${data.get("branch")}`,
+        `Treatment: ${data.get("treatment")}`,
+        `Preferred date: ${data.get("date") || "Not selected"}`,
+        `Message: ${data.get("message") || "No extra message"}`
+      ].join("\n");
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    });
+  </script>
+</body>
+</html>
